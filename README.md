@@ -1,6 +1,6 @@
 ## SkyPulseStats
 
-![](https://imgur.com/a/zx12E82)
+![]([https://i.imgur.com/azUSF9u.png](https://i.imgur.com/azUSF9u.png)
 
 This is a program used to get skyblock stats.
 
