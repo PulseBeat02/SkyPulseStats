@@ -1,4 +1,7 @@
 ## SkyPulseStats
+
+![](https://imgur.com/a/zx12E82)
+
 This is a program used to get skyblock stats.
 
 # Plans to do:
