@@ -9,5 +9,6 @@ Last August, Hypixel released a new game mode called **Skyblock**. Skyblock is a
 
 - Decoding the inventory, enderchest, candy talisman, talisman bag, quiver, potion bag, fisherman bag, data in [https://api.hypixel.net/skyblock/profile?key=key_here&profile=profile_id_here](https://api.hypixel.net/skyblock/profile?key=key_here&profile=profile_id_here). This will be hard because I need to decode the [Base64](https://en.wikipedia.org/wiki/Base64) data into a compressed [GZIP](https://en.wikipedia.org/wiki/Gzip) archive, and then decompress it to get a [.NBT](https://minecraft.gamepedia.com/NBT_format) file, which I must then parse in order to get the contents.
 - Add textures to items. This will be hard as I must be careful to locate the texture path and direct it to the correct item. Perhaps a good example that [sky.lea.moe](sky.lea.moe) used is [slothpixel](https://github.com/slothpixel/core/blob/master/processors/processInventoryData.js), a repo that can help preform this task.
+- Getting bonus stats, another hard one.
 
 For current problems, there are no problems as I know of, but please report bugs because they help make this project better.
