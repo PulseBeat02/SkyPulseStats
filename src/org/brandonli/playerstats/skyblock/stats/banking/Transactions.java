@@ -15,7 +15,7 @@ public class Transactions {
 	
 	public static void main(String[] args) throws JSONException, UnirestException {
 		
-		updateTransactions("PulseBeat_02", "Apple");
+		getTransactions("PulseBeat_02", "Apple");
 		
 		for (int i = 0; i < transactions.size(); i++) {
 			
@@ -27,7 +27,7 @@ public class Transactions {
 		
 	}
 	
-	public static void updateTransactions(String username, String profileName) throws JSONException, UnirestException {
+	public static ArrayList<Transaction> getTransactions(String username, String profileName) throws JSONException, UnirestException {
 		
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 		JSONArray stats = output.getJSONObject("profile").getJSONObject("banking").getJSONArray("transactions");
@@ -46,6 +46,8 @@ public class Transactions {
 			
 			
 		}
+		
+		return transactions;
 		
 	}
 	

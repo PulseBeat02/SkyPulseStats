@@ -202,7 +202,7 @@ public class SkillUtil {
 	public static TreeMap<Integer, CombatSkillBoost> getBonusStatsCombatSkill() { // crit_chance
 		
 		TreeMap<Integer, CombatSkillBoost> combat_bonus = new TreeMap<>();
-		combat_bonus.put(1, new CombatSkillBoost(1, 0.04));
+		combat_bonus.put(1, new CombatSkillBoost(1, 1));
 		
 		bonus_stats.put("Combat", combat_bonus);
 		

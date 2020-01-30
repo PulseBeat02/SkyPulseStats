@@ -15,7 +15,7 @@ public class Tutorial {
 	
 	public static void main(String[] args) throws JSONException, UnirestException {
 
-		updateObjectives("PulseBeat_02", "Apple");
+		getTutorials("PulseBeat_02", "Apple");
 
 		for (int i = 0; i < tutorials.size(); i++) {
 
@@ -25,7 +25,7 @@ public class Tutorial {
 
 	}
 	
-	public static void updateObjectives(String username, String profileName) throws JSONException, UnirestException {
+	public static ArrayList<String> getTutorials(String username, String profileName) throws JSONException, UnirestException {
 
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 
@@ -51,6 +51,8 @@ public class Tutorial {
 			tutorials.add(str.trim());
 
 		}
+		
+		return tutorials;
 
 	}
 

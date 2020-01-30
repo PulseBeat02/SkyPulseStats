@@ -14,7 +14,7 @@ public class Quests {
 	
 	public static void main(String[] args) throws JSONException, UnirestException {
 		
-		updateQuests("PulseBeat_02", "Apple");
+		getQuests("PulseBeat_02", "Apple");
 		
 		for (int i = 0; i < quests.size(); i++) {
 			
@@ -24,7 +24,7 @@ public class Quests {
 		
 	}
 	
-	public static void updateQuests(String username, String profileName) throws JSONException, UnirestException {
+	public static ArrayList<Quest> getQuests(String username, String profileName) throws JSONException, UnirestException {
 		
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 
@@ -58,6 +58,8 @@ public class Quests {
 			
 			
 		}
+		
+		return quests;
 		
 	}
 

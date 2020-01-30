@@ -15,7 +15,7 @@ public class Kills {
 
 	public static void main(String[] args) throws JSONException, UnirestException {
 
-		updateKills("PulseBeat_02", "Apple");
+		getKills("PulseBeat_02", "Apple");
 
 		for (String name : kills.keySet()) {
 
@@ -25,7 +25,7 @@ public class Kills {
 
 	}
 
-	public static void updateKills(String username, String profileName) throws JSONException, UnirestException {
+	public static HashMap<String, Double> getKills(String username, String profileName) throws JSONException, UnirestException {
 
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 
@@ -70,6 +70,8 @@ public class Kills {
 			}
 
 		}
+		
+		return kills;
 
 	}
 

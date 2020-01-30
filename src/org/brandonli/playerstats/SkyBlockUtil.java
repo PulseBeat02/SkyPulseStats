@@ -32,7 +32,7 @@ public class SkyBlockUtil {
 	static JSONObject stats;
 	static JSONObject allProfiles;
 	
-	static String key = "";
+	static String key = "c71fdfbf-d6d3-4a02-aed8-da4a17e0929a";
 
 	public static void main(String[] args) throws JSONException, UnirestException {
 

@@ -15,7 +15,7 @@ public class VisitedZones {
 	
 	public static void main(String[] args) throws JSONException, UnirestException {
 		
-		updateVistedZones("PulseBeat_02", "Apple");
+		getVistedZones("PulseBeat_02", "Apple");
 		
 		for (int i = 0; i < visitedZones.size(); i++) {
 			
@@ -26,7 +26,7 @@ public class VisitedZones {
 		
 	}
 	
-	public static void updateVistedZones(String username, String profileName) throws JSONException, UnirestException {
+	public static ArrayList<String> getVistedZones(String username, String profileName) throws JSONException, UnirestException {
 		
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 
@@ -52,6 +52,8 @@ public class VisitedZones {
 			visitedZones.add(str.trim());
 			
 		}
+		
+		return visitedZones;
 		
 	}
 

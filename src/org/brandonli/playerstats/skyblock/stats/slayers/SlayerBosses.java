@@ -1,8 +1,10 @@
 package org.brandonli.playerstats.skyblock.stats.slayers;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 import org.brandonli.playerstats.SkyBlockUtil;
+import org.brandonli.playerstats.skyblock.stats.skills.SkillUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -14,7 +16,7 @@ public class SlayerBosses {
 
 	public static void main(String[] args) throws JSONException, UnirestException {
 
-		updateSlayerBosses("PulseBeat_02", "Apple");
+		getSlayerBosses("PulseBeat_02", "Apple");
 
 		for (int i = 0; i < slayers.size(); i++) {
 
@@ -33,7 +35,8 @@ public class SlayerBosses {
 
 	}
 
-	public static void updateSlayerBosses(String username, String profileName) throws JSONException, UnirestException {
+	public static ArrayList<Slayer> getSlayerBosses(String username, String profileName)
+			throws JSONException, UnirestException {
 
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 
@@ -66,12 +69,49 @@ public class SlayerBosses {
 				}
 
 			}
-			
+
 			slayers.add(s);
 
 		}
+
+		return slayers;
+
+	}
+
+	public static int getSlayerLevel(String username, String profileName, String slayer)
+			throws JSONException, UnirestException {
+
+		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
+
+		String id = output.getJSONObject("profile").getString("profile_id");
+
+		JSONObject slayers = output.getJSONObject("profile").getJSONObject("members").getJSONObject(id)
+				.getJSONObject("slayer_bosses").getJSONObject(slayer);
 		
+		double experience = slayers.getDouble("xp");
 		
+		TreeMap<Integer, Integer> table = SkillUtil.getSlayerXP();
+		
+		double currentAddedXP = 0;
+		
+		int skillLevel = 0;
+		
+		for (int level : table.keySet()) {
+			
+			if (table.get(level) + currentAddedXP <= experience) {
+				
+				currentAddedXP += table.get(level);
+				
+			} else {
+				
+				skillLevel = level - 1;
+				break;
+				
+			}
+			
+		}
+		
+		return skillLevel;
 
 	}
 

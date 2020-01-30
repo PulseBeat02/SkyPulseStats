@@ -2,10 +2,10 @@ package org.brandonli.playerstats.skyblock.stats.skills;
 
 public class FairySoulBoost {
 	
-	int health;
-	int defense;
-	int strength;
-	int speed;
+	public int health;
+	public int defense;
+	public int strength;
+	public int speed;
 	
 	public FairySoulBoost(int h, int d, int s, int sp) {
 		

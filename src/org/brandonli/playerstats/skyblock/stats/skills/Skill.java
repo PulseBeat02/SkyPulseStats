@@ -10,13 +10,13 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class Skill {
 
-	String name;
+	public String name;
 
-	int level;
+	public int level;
 	
-	double xpCurrent;
-	double xpForNext;
-	double progress;
+	public double xpCurrent;
+	public double xpForNext;
+	public double progress;
 
 	public Skill(String s, int level, double xpCurrent, double xpForNext, double progress) {
 
@@ -33,6 +33,9 @@ public class Skill {
 		Skill s = getSkillLevelNormal("PulseBeat_02", "Apple", "combat");
 		System.out.println(s.level);
 		System.out.println(s.xpForNext);
+		
+		Skill rune = getSkillLevelRuneCrafting("PulseBeat_02", "Apple");
+		System.out.println(rune.level);
 		
 	}
 	
@@ -71,11 +74,11 @@ public class Skill {
 			
 		}
 		
-		return new Skill(skill, skillLevel, experience, XPForNext, progress);
+		return new Skill(skill.substring(0, 1).toUpperCase() + skill.substring(1), skillLevel, experience, XPForNext, progress);
 
 	}
 	
-	public static Skill getSkillLevelRuneCrafting(String username, String profileName, String skill) throws JSONException, UnirestException {
+	public static Skill getSkillLevelRuneCrafting(String username, String profileName) throws JSONException, UnirestException {
 		
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 
@@ -110,7 +113,7 @@ public class Skill {
 			
 		}
 		
-		return new Skill(skill, skillLevel, experience, XPForNext, progress);
+		return new Skill("Runecrafting", skillLevel, experience, XPForNext, progress);
 		
 	}
 

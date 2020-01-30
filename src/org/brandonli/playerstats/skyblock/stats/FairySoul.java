@@ -8,7 +8,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class FairySoul {
 
-	int number;
+	public int number;
 
 	public FairySoul(int num) {
 
@@ -16,7 +16,7 @@ public class FairySoul {
 
 	}
 
-	public static FairySoul updateFairySoulCount(String username, String profileName) throws JSONException, UnirestException {
+	public static FairySoul getFairySoulCount(String username, String profileName) throws JSONException, UnirestException {
 
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 

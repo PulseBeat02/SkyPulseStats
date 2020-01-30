@@ -12,7 +12,7 @@ public class Balance {
 
 	public static void main(String[] args) throws JSONException, UnirestException {
 
-		updateBalance("PulseBeat_02", "Apple");
+		getBalance("PulseBeat_02", "Apple");
 
 		balance = 0.01 * Math.floor(balance * 100.0);
 
@@ -20,12 +20,14 @@ public class Balance {
 
 	}
 
-	public static void updateBalance(String username, String profileName) throws JSONException, UnirestException {
+	public static double getBalance(String username, String profileName) throws JSONException, UnirestException {
 
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 		JSONObject stats = output.getJSONObject("profile").getJSONObject("banking");
 
 		balance = stats.getDouble("balance");
+		
+		return balance;
 
 	}
 

@@ -14,7 +14,7 @@ public class Objectives {
 
 	public static void main(String[] args) throws JSONException, UnirestException {
 
-		updateObjectives("PulseBeat_02", "Apple");
+		getObjectives("PulseBeat_02", "Apple");
 
 		for (int i = 0; i < objectives.size(); i++) {
 
@@ -24,7 +24,7 @@ public class Objectives {
 
 	}
 
-	public static void updateObjectives(String username, String profileName) throws JSONException, UnirestException {
+	public static ArrayList<Objective> getObjectives(String username, String profileName) throws JSONException, UnirestException {
 
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 
@@ -57,6 +57,8 @@ public class Objectives {
 			objectives.add(new Objective(str.trim(), status, progress, SkyBlockUtil.ConvertFromEpoc(completed)));
 
 		}
+		
+		return objectives;
 
 	}
 

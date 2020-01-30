@@ -8,7 +8,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class Time {
 	
-	public static String updateJoinDate(String username, String profileName) throws JSONException, UnirestException {
+	public static String getJoinDate(String username, String profileName) throws JSONException, UnirestException {
 		
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 
@@ -20,7 +20,7 @@ public class Time {
 		
 	}
 	
-	public static String updateLastSave(String username, String profileName) throws JSONException, UnirestException {
+	public static String getLastSave(String username, String profileName) throws JSONException, UnirestException {
 		
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 

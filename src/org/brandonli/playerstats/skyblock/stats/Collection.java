@@ -14,7 +14,7 @@ public class Collection {
 	
 	public static void main(String[] args) throws JSONException, UnirestException {
 		
-		updateCollection("PulseBeat_02", "Apple");
+		getCollection("PulseBeat_02", "Apple");
 		
 		for (String s : collection.keySet()) {
 			
@@ -24,16 +24,16 @@ public class Collection {
 		
 	}
 	
-	public static void updateCollection(String username, String profileName) throws JSONException, UnirestException {
+	public static TreeMap<String, Integer> getCollection(String username, String profileName) throws JSONException, UnirestException {
 		
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
 
 		String id = output.getJSONObject("profile").getString("profile_id");
 
-		JSONObject stats = output.getJSONObject("profile").getJSONObject("members").getJSONObject(id)
+		JSONObject c = output.getJSONObject("profile").getJSONObject("members").getJSONObject(id)
 				.getJSONObject("collection");
 		
-		String[] keys = JSONObject.getNames(stats);
+		String[] keys = JSONObject.getNames(c);
 		
 		for (int i = 0; i < keys.length; i++) {
 			
@@ -47,9 +47,11 @@ public class Collection {
 				
 			}
 			
-			collection.put(str.trim(), stats.getInt(keys[i]));
+			collection.put(str.trim(), c.getInt(keys[i]));
 			
 		}
+		
+		return collection;
 		
 	}
 

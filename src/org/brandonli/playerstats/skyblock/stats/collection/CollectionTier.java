@@ -16,7 +16,7 @@ public class CollectionTier {
 	
 	public static void main(String[] args) throws JSONException, UnirestException {
 		
-		updateCollectionTiers("PulseBeat_02", "Apple");
+		getCollectionTiers("PulseBeat_02", "Apple");
 		
 		for (String name : collectionsTiers.keySet()) {
 			
@@ -27,7 +27,7 @@ public class CollectionTier {
 		
 	}
 
-	public static void updateCollectionTiers(String username, String profileName)
+	public static TreeMap<String, Integer> getCollectionTiers(String username, String profileName)
 			throws JSONException, UnirestException {
 
 		JSONObject output = SkyBlockUtil.getSkyBlockProfileInfo(username, profileName);
@@ -62,6 +62,8 @@ public class CollectionTier {
 			collectionsTiers.put(str.trim(), level);
 			
 		}
+		
+		return collectionsTiers;
 
 	}
 
